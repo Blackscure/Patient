@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from App.models import Patient
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 # Function to render the frontend page
 def frontend(request):
@@ -30,3 +31,6 @@ def add_patient(request):
         patient.note = request.POST.get('note')
         patient.save()
         messages.success(request, "Patient added successfully !")
+        return HttpResponseRedirect('/backend')
+    else:
+        return render(request, 'add.html')
