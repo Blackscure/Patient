@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<!-- Navbar content -->
+{% block nav-content %}
+<i class="fa fa-hospital-user">&nbsp;&nbsp; Patients</i>
+{% endblock nav-content %}
+
+<!-- Button in navbar-->
+{% block btn-nav %}
+<a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav">Logout</a>
+{% endblock btn-nav %}
+
+<!--## page content ##-->
+{% block content %}
+<h1 class="text-danger text-center"> Back end Page</h1>
+{% endblock content %}
+ 

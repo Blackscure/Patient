@@ -1,0 +1,63 @@
+/* -------------------------------
+# STATIC CONFIGURATION
+----------------------------------*/
+html,
+body{
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* -------------------------------
+# NAVBAR
+----------------------------------*/
+#btn-nav{
+    width: 90px;
+    float: right;
+    margin-right: 25px;
+}
+
+/* -------------------------------
+# FOOTER
+----------------------------------*/
+.wraper{
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+#footer{
+    width:100%;
+    position: fixed;
+    /*usefixedinsteadofabsolute*/bottom: 0;
+    /*setbottomto0*/font-size: 15px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    background-color:black;
+    border-width: 10px;
+    color: white;
+   
+}
+
+
+/* -------------------------------
+# LOGIN
+----------------------------------*/
+
+#btn-enter{
+    width: 90px;
+}
+
+#heart {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    font-size: 22px;
+}
