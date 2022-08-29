@@ -23,6 +23,71 @@
         </span>
     </div>
 
+    <!-- Input Search + Butto + Button Reset-->
+    <form>
+        <div class="input-group input-sm mb-3 mt-4">
+            <input name="q" type="text" class="form-control" placeholder="Search for...">
+            <button class="btn btn-secondary"><i class="fa fa-search"></i></button>
+            <a href="{% url 'backend' %} " class="btn btn-dark" style="margin-left: 2px;"><i class="fa fa-sync-alt"></i></a>
+        </div>
+    </form>
+
+    <!-- Table -->
+    <center>
+        <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
+            <thead class="table-primary">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Registered</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <!-- Data from Backend -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </center>
+
+    <!-- Pagination -->
+    <nav class="mt-4">
+        {% if patients.has_other_pages %}
+        <ul class="pagination justify-content-left">
+            {% if patients.has_previous %}
+            <a href="?page=1" class="btn btn-outline-primary mb-4" style="width: 60px; border-radius: 1px solid #d3d3d3;">First</a>
+            <li class="page-item"><a class="page-link" href="?page={{ patients.patients.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"></li>
+            {% endif %}
+  
+            {% for i in patients.paginator.page_range %}
+                {% if patients.number == i %}
+                <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only"></span></span></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if patients.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ patients.next_page_number }}"><i class="fa fa-angle-double-right"></i></a></li>
+            <a href="#" class="btn btn-outline-primary mb-4" style="width: 60px; border-radius: 1px solid #d3d3d3; border-left: none;">Last</a>
+            {% else %}
+            <li class="page-item disabled"></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </nav>
+    
     {% for message in messages %}
         {% if message.tags == 'success' %}
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
