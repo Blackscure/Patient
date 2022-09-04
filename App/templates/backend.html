@@ -37,13 +37,13 @@
         <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
             <thead class="table-primary">
                 <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Registered</th>
-                    <th>Actions</th>
+                    <th style="width: 21%;">Name</th>
+                    <th style="width: 15%;">Phone</th>
+                    <th style="width: 21%;">Email</th>
+                    <th style="width: 8%;">Age</th>
+                    <th style="width: 7%;">Gender</th>
+                    <th style="width: 81%;">Registered</th>
+                    <th style="width: 10%;" colspan="2">Actions</th>
                 </tr>
             </thead>
             <!-- Data from Backend -->
@@ -55,7 +55,17 @@
                 <td>{{ patient.age }}</td>
                 <td>{{ patient.gender }}</td>
                 <td>{{ patient.create_at | date:'m/d/Y' }}</td>
-                <td></td>
+                <td>
+                    <a class="btn btn-primary" href="/patient/{{ patient.id }}" title="Edit patient">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-secondary" href="#" title="Delete patient">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+
             </tr>
             {% endfor %}
         </table>

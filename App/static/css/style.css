@@ -61,3 +61,11 @@ body{
     -o-transform: translate(-50%, -50%);
     font-size: 22px;
 }
+
+
+/* ----------------------
+# BACKEND
+------------------------- */
+.side-lebel {
+    width : 75px;
+}

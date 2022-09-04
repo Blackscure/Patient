@@ -1,0 +1,45 @@
+{% extends 'add.html' %}
+
+<!-- Navbar content ( icon + title ) -->
+{% block nav-content %}
+<i class="fa fa-user-edit">&nbsp; &nbsp; {{ patient.name }}</i>
+{% endblock %}
+
+<!-- Card title in add.htmtl extedded here -->
+{% block card-title %}
+Registered at: <span class="text-dark">{{ patient.create_at | date:'m/d/Y' }}</span>
+{% endblock card-title %}
+
+<!-- Add button exteded here -->
+{% block Btn-add %}
+<i class="fa fa-harddisk">&nbsp;&nbsp;Save</i>
+{% endblock Btn-add %}
+ 
+
+<!-- Block Form Action -->
+{% block Action %} action="/edit_patient"{% endblock Action %}
+ 
+
+<!-- =============== All <inputs> Extended ===============-->
+<!-- Name -->
+{% block value-name %} value={{ patient.name }} {% endblock value-name %}
+<!-- Phone -->
+{% block value-phone %} value={{ patient.phone }} {% endblock value-phone %}
+<!-- email -->
+{% block value-age %} value={{ patient.age }} {% endblock value-age %}
+<!-- email -->
+{% block value-email %} value={{ patient.email }} {% endblock value-email %}
+<!-- Gender -->
+{% block option %}
+<option style="background-color: #d3d3d3; color: #007bff;">{{ patient.gender }}</option>
+{% endblock option %}
+<!-- Note -->
+{% block note %}{{ patient.note }}{% endblock note %}
+
+<!-- ID Hidden  -->
+{% block Id-hidden %}
+<input type="hidden" value="{{ patient.id }}" name="id">
+{% endblock Id-hidden %}
+
+ 
+ 
