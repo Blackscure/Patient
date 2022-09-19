@@ -26,7 +26,7 @@
     <!-- Input Search + Butto + Button Reset-->
     <form>
         <div class="input-group input-sm mb-3 mt-4">
-            <input name="q" type="text" class="form-control" placeholder="Search for...">
+            <input name="q" type="text" class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
             <button class="btn btn-secondary"><i class="fa fa-search"></i></button>
             <a href="{% url 'backend' %} " class="btn btn-dark" style="margin-left: 2px;"><i class="fa fa-sync-alt"></i></a>
         </div>
@@ -61,7 +61,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-secondary" href="#" title="Delete patient">
+                    <a class="btn btn-secondary" href="/delete_patient/{{ patient.id }}" title="Delete patient">
                         <i class="fa fa-trash"></i>
                     </a>
                 </td>

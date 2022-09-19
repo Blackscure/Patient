@@ -23,4 +23,6 @@ urlpatterns = [
 
     # Path to Edit patient
     path('edit_patient', views.edit_patient, name="edit_patient"),
+    # Path to Delete patient
+    path('delete_patient/<int:patient_id', views.delete_patient, name="delete_patient"),
 ]
