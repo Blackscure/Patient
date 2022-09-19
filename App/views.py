@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 # My Imports
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control
 from App.models import Patient
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -14,6 +15,7 @@ def frontend(request):
 
 # --------------------------BACKEND SECTION --------------------------|
 # Function to access the backend page
+@cache_control(no_cache=True, must_revalidade=True, no_store=True)
 @login_required(login_url="login")
 def backend(request):
 
@@ -33,6 +35,8 @@ def backend(request):
     
 
 # Fucntion to insert new patient
+
+@cache_control(no_cache=True, must_revalidade=True, no_store=True)
 @login_required(login_url="login")
 def add_patient(request):
     if request.method != "POST":
@@ -52,6 +56,8 @@ def add_patient(request):
         return render(request, 'add.html')
 
 # Function to access the patient individually
+
+@cache_control(no_cache=True, must_revalidade=True, no_store=True)
 @login_required(login_url="login")
 def patient(request, patient_id):
     patient = Patient.objects.get(id = patient_id)
@@ -60,6 +66,8 @@ def patient(request, patient_id):
 
 
 # Function to edit the patient 
+
+@cache_control(no_cache=True, must_revalidade=True, no_store=True)
 @login_required(login_url="login")
 def edit_patient(request):
     if request.method == "POST":
@@ -77,6 +85,17 @@ def edit_patient(request):
             messages.success(request, "Patient updated successfully !")
             return HttpResponseRedirect('/backend')
 
+
+# Fucntion to ddel patient
+
+@cache_control(no_cache=True, must_revalidade=True, no_store=True)
+@login_required(login_url="login")
+def delete_patient(request, patient_id):
+    patient = Patient.objects.get(id = patient_id)
+    patient.delete()
+
+    messages.success(request, "Patient removedd successfully !")
+    return HttpResponseRedirect('/backend')
 
 
  
